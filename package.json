@@ -1,0 +1,38 @@
+{
+  "name": "vue-webpack",
+  "version": "1.0.0",
+  "description": "This is Vue Application maintain the light weight configuration using Webpack",
+  "scripts": {
+    "start": "webpack serve --config configs/webpack/webpack.config.js",
+    "clean": "rm -rf build",
+    "build": "npm run clean; webpack build --config configs/webpack/webpack.config.js",
+    "build:dev": "npm run clean; webpack build --env variant=dev --config configs/webpack/webpack.config.js",
+    "build:uat": "npm run clean; webpack build --env variant=uat --config configs/webpack/webpack.config.js",
+    "build:prod": "npm run clean; webpack build --env variant=prod --config configs/webpack/webpack.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "babel-loader": "^9.1.3",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^5.0.1",
+    "dotenv": "^16.3.1",
+    "html-webpack-plugin": "^5.5.3",
+    "interpolate-html-plugin": "^4.0.0",
+    "terser-webpack-plugin": "^5.3.9",
+    "ts-loader": "^9.4.4",
+    "tsconfig-paths-webpack-plugin": "^4.1.0",
+    "vue-loader": "^17.2.2",
+    "vue-style-loader": "^4.1.3",
+    "vue-template-compiler": "^2.7.14",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "webpack-merge": "^5.9.0"
+  }
+}

@@ -1,0 +1,12 @@
+# dist or buil production
+build
+
+# dependencies
+node_modules
+
+# environments
+.env*
+
+# test chunks
+test
+
