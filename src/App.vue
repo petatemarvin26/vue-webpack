@@ -1,22 +1,12 @@
 <template>
-  <p>{{ message }}</p>
+  <div :class="$style.app">HELLO WORLD</div>
 </template>
 
 <script lang="ts">
 import {defineComponent} from 'vue';
-import Test from './Test/index.vue';
-
 export default defineComponent({
-  name: 'App',
-  data() {
-    return {
-      message: 'HELLO WORLD'
-    };
-  },
-  components: {
-    Test
-  }
+  name: 'App'
 });
 </script>
 
-<style></style>
+<style module src="./App.module.css"></style>

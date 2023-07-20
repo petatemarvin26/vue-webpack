@@ -1,7 +1,8 @@
-const {resolver, assetFilter} = require('./utils');
+const {resolver, assetFilter, assetOutputPath} = require('./utils');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InterpolateHtmlPlugin = require('interpolate-html-plugin');
-const {MAX_SIZE, STYLE_REGEX} = require('./constants');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const {MAX_SIZE, STYLE_REGEX, FILE_REGEX} = require('./constants');
 
 /**
  * @param {*} env
@@ -20,6 +21,9 @@ module.exports = (env) => {
     new HtmlWebpackPlugin({
       template: resolver('public/index.html'),
       title: 'vue'
+    }),
+    new MiniCssExtractPlugin({
+      filename: `static/css/[contenthash:10].styles.css`
     })
   ];
   const module = {
@@ -27,7 +31,7 @@ module.exports = (env) => {
       {
         test: STYLE_REGEX,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -39,6 +43,14 @@ module.exports = (env) => {
           }
         ],
         exclude: '/node_modules/'
+      },
+      {
+        test: FILE_REGEX,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: assetOutputPath
+        }
       }
     ]
   };
