@@ -1,16 +1,22 @@
-
-
 <template>
-  <p>{{ count }}</p>
+  <p>{{ message }}</p>
 </template>
 
-<script  lang="ts">
+<script lang="ts">
 import {defineComponent} from 'vue';
+import Test from './Test/index.vue';
 
 export default defineComponent({
-  components: {}
+  name: 'App',
+  data() {
+    return {
+      message: 'HELLO WORLD'
+    };
+  },
+  components: {
+    Test
+  }
 });
 </script>
 
-
-<style src="./.module.css" module></style>
+<style></style>

@@ -1,6 +1,6 @@
 {
   "name": "vue-webpack",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is Vue Application maintain the light weight configuration using Webpack",
   "scripts": {
     "start": "webpack serve --config configs/webpack/webpack.config.js",

@@ -8,6 +8,12 @@
     "esModuleInterop": true,
     "moduleResolution": "node"
   },
-  "include": ["./src/**/*", "./module.d.ts", "./configs/.eslintrc.js"],
+  "include": [
+    "./src/**/*.vue",
+    "./src/**/*.ts",
+    "./src/**/*.css",
+    "./module.d.ts",
+    "./configs/.eslintrc.js"
+  ],
   "exclude": ["node_modules"]
 }

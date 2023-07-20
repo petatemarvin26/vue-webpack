@@ -43,11 +43,16 @@ module.exports = (webpack_env) => {
     rules: [
       {
         test: VUE_SOURCE_REGEX,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
+        exclude: /node_modules/
       },
       {
         test: SOURCE_REGEX,
-        loader: 'ts-loader'
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          appendTsSuffixTo: [/\.vue$/]
+        }
       }
     ]
   };
