@@ -1,0 +1,12 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "extraFileExtensions": [".vue"],
+    "ecmaFeatures": true
+  },
+  "rules": {
+    "no-unused-vars": "warn",
+    "semi": ["warn", "always"],
+    "quotes": ["warn", "single"]
+  }
+}

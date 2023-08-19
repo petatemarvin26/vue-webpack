@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html lang="">
+<html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <link rel="stylesheet" href="%PUBLIC_URL%/index.css" />
-    <title>Vue</title>
+    <title>Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Mavin Petate" />
+    <meta
+      name="description"
+      content="This boilerplate intended for react boilerplate from scratch using webpack"
+    />
+    <link
+      rel="icon"
+      href="<%= htmlWebpackPlugin.options.PUBLIC_URL %>/logo.png"
+    />
+    <link
+      rel="stylesheet"
+      href="<%= htmlWebpackPlugin.options.PUBLIC_URL %>/index.css"
+    />
   </head>
   <body>
-    <div id="app"></div>
+    <div id="root"></div>
   </body>
 </html>
