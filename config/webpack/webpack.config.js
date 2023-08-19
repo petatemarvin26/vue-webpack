@@ -3,9 +3,10 @@ const {DefinePlugin} = require('webpack');
 const {VueLoaderPlugin} = require('vue-loader');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
-const {getEnv} = require('./utils');
+const {getEnv, resolver} = require('./utils');
 const devConfig = require('./webpack.dev');
 const prodConfig = require('./webpack.prod');
+const {SRC_FILE} = require('./constants');
 
 /**
  * @param {object} webpack_env
@@ -29,6 +30,15 @@ module.exports = (webpack_env) => {
       {
         test: /\.(vue)$/,
         loader: 'vue-loader'
+      },
+      {
+        test: SRC_FILE,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+          configFile: resolver('config/.babelrc')
+        }
       }
     ]
   };
