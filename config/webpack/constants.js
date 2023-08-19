@@ -9,6 +9,7 @@ const ROOT_DIR = path.resolve(__dirname, '../..');
 
 const JS_FILE = /\.(js|jsx)$/;
 const TS_FILE = /\.(ts|tsx)$/;
+const VUE_FILE = /\.(vue)$/;
 const STYLE_FILE = /\.(css|scss)$/i;
 const SRC_FILE = [JS_FILE, TS_FILE];
 
@@ -24,6 +25,7 @@ module.exports = {
   PUBLIC_URL,
   JS_FILE,
   TS_FILE,
+  VUE_FILE,
   STYLE_FILE,
   SRC_FILE,
   IMG_FILE,

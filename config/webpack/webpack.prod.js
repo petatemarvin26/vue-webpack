@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -24,7 +23,35 @@ module.exports = (env) => {
   /**
    * @type {import('webpack').Configuration['module']}
    */
-  const modules = {};
+  const modules = {
+    rules: [
+      {
+        test: IMG_FILE,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: assetOutputPath
+          }
+        }
+      },
+      {
+        test: STYLE_FILE,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              esModule: true,
+              modules: {
+                localIdentName: '[hash:10]'
+              }
+            }
+          }
+        ]
+      }
+    ]
+  };
 
   /**
    * @type {import('webpack').Configuration['plugins']}

@@ -36,7 +36,6 @@ module.exports = (webpack_env) => {
         loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
-          appendTsSuffixTo: [/\.vue$/],
           configFile: resolver('config/.babelrc')
         }
       }
