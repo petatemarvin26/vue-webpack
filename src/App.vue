@@ -1,12 +1,5 @@
 <template>
-  <div :class="$style.app">HELLO WORLD</div>
+  <h1>HELLO WORLD</h1>
 </template>
 
-<script lang="ts">
-import {defineComponent} from 'vue';
-export default defineComponent({
-  name: 'App'
-});
-</script>
-
-<style module src="./App.module.css"></style>
+<script></script>
