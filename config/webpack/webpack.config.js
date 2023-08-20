@@ -1,6 +1,7 @@
 const {merge} = require('webpack-merge');
 const {DefinePlugin} = require('webpack');
 const {VueLoaderPlugin} = require('vue-loader');
+const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const {getEnv, resolver} = require('./utils');
@@ -54,8 +55,9 @@ module.exports = (webpack_env) => {
    * @type {import('webpack').Configuration['resolve']}
    */
   const resolve = {
-    plugins: [new TsconfigPathsPlugin()],
-    extensions: ['.js', '.ts', '.vue']
+    extensions: ['.js', '.ts', '.vue'],
+    preferRelative: true,
+    plugins: [new TsconfigPathsPlugin(), new DirectoryNamedWebpackPlugin(true)]
   };
 
   /**
