@@ -3,8 +3,9 @@
   "parserOptions": {
     "parser": "@typescript-eslint/parser",
     "sourceType": "module",
-    "extraFileExtensions": [".vue"],
-    "ecmaFeatures": true
+    "ecmaFeatures": true,
+    "ecmaVersion": "latest",
+    "extraFileExtensions": [".vue"]
   },
   "rules": {
     "no-unused-vars": "warn",
