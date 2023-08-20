@@ -62,11 +62,11 @@ module.exports = (env) => {
       PUBLIC_URL: '.',
       template: resolver('public/index.html')
     }),
-    // new ESLintPlugin({
-    //   context: resolver('src'),
-    //   overrideConfigFile: resolver('config/.eslintrc'),
-    //   extensions: ['.ts', '.js', '.vue']
-    // })
+    new ESLintPlugin({
+      context: resolver('src'),
+      overrideConfigFile: resolver('config/.eslintrc'),
+      extensions: ['.ts', '.js', '.vue']
+    })
   ];
 
   return {
