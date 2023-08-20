@@ -1,11 +1,12 @@
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
-const {resolver, copyFilter} = require('./utils');
-const {STYLE_FILE, SRC_FILE} = require('./constants');
+const {resolver, copyFilter, assetOutputPath} = require('./utils');
+const {STYLE_FILE, SRC_FILE, IMG_FILE} = require('./constants');
 
 /**
  * @param {any} env
