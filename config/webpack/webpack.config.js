@@ -1,6 +1,8 @@
 const {merge} = require('webpack-merge');
 const {DefinePlugin} = require('webpack');
 const {VueLoaderPlugin} = require('vue-loader');
+const ESLintPlugin = require('eslint-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
@@ -48,7 +50,17 @@ module.exports = (webpack_env) => {
    */
   const plugins = [
     new VueLoaderPlugin(),
-    new DefinePlugin({'process.env': JSON.stringify(env)})
+    new ForkTsCheckerWebpackPlugin(),
+    new DefinePlugin({'process.env': JSON.stringify(env)}),
+    new ESLintPlugin({
+      context: resolver('src'),
+      overrideConfigFile: resolver('config/.eslintrc'),
+      extensions: ['.ts', '.js', '.vue'],
+      fix: false,
+      emitError: true,
+      emitWarning: true,
+      failOnError: true
+    })
   ];
 
   /**

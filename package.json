@@ -1,9 +1,9 @@
 {
   "name": "vue-webpack",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "This boilerplate intended for vue boilerplate from scratch using webpack",
   "author": "Marvin Petate",
-  "license": "MIT",
+  "license": "ISC",
   "scripts": {
     "start": "webpack serve --config config/webpack/webpack.config.js",
     "clean": "rm -rf build",
@@ -22,6 +22,7 @@
     "not dead"
   ],
   "dependencies": {
+    "fork-ts-checker-webpack-plugin": "^8.0.0",
     "vue": "^3.3.4"
   },
   "devDependencies": {
@@ -38,7 +39,6 @@
     "directory-named-webpack-plugin": "^4.0.1",
     "dotenv": "^16.3.1",
     "eslint": "^8.47.0",
-    "eslint-plugin-vue": "^9.17.0",
     "eslint-webpack-plugin": "^4.0.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.3",
@@ -47,6 +47,7 @@
     "terser-webpack-plugin": "^5.3.9",
     "ts-loader": "^9.4.4",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
+    "vue-eslint-parser": "^9.3.1",
     "vue-loader": "^17.2.2",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
