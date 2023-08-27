@@ -1,13 +1,13 @@
 {
   "parser": "vue-eslint-parser",
   "parserOptions": {
-    "parser": "@typescript-eslint/parser",
     "sourceType": "module",
-    "ecmaFeatures": true,
     "ecmaVersion": "latest",
     "extraFileExtensions": [".vue"]
   },
+  "extends": ["plugin:vue/vue3-essential"],
   "rules": {
+    "vue/multi-word-component-names": "off",
     "no-unused-vars": "warn",
     "semi": ["warn", "always"],
     "quotes": ["warn", "single"]

@@ -7,7 +7,8 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "strict": true,
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "noEmit": true
   },
   "include": [
     "*.vue",

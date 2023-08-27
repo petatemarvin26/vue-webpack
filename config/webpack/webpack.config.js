@@ -1,13 +1,15 @@
 const {merge} = require('webpack-merge');
 const {DefinePlugin} = require('webpack');
 const {VueLoaderPlugin} = require('vue-loader');
+const ESLintPlugin = require('eslint-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const {getEnv, resolver} = require('./utils');
 const devConfig = require('./webpack.dev');
 const prodConfig = require('./webpack.prod');
-const {SRC_FILE} = require('./constants');
+const {SRC_FILE, VUE_FILE} = require('./constants');
 
 /**
  * @param {object} webpack_env
@@ -29,7 +31,7 @@ module.exports = (webpack_env) => {
   const modules = {
     rules: [
       {
-        test: /\.(vue)$/,
+        test: VUE_FILE,
         loader: 'vue-loader'
       },
       {
@@ -48,7 +50,12 @@ module.exports = (webpack_env) => {
    */
   const plugins = [
     new VueLoaderPlugin(),
-    new DefinePlugin({'process.env': JSON.stringify(env)})
+    new ForkTsCheckerWebpackPlugin(),
+    new DefinePlugin({'process.env': JSON.stringify(env)}),
+    new ESLintPlugin({
+      overrideConfigFile: resolver('config/.eslintrc'),
+      extensions: ['.ts', '.js', '.vue']
+    })
   ];
 
   /**

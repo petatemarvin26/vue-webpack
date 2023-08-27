@@ -1,0 +1,11 @@
+.main {
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.main .input {
+  padding: 10px 15px;
+  background-color: #fafafa;
+  text-align: center;
+}

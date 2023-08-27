@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
 
 const {IMG_FILE, STYLE_FILE} = require('./constants');
 const {resolver} = require('./utils');
@@ -61,11 +60,6 @@ module.exports = (env) => {
     new HtmlWebpackPlugin({
       PUBLIC_URL: '.',
       template: resolver('public/index.html')
-    }),
-    new ESLintPlugin({
-      context: resolver('src'),
-      overrideConfigFile: resolver('config/.eslintrc'),
-      extensions: ['.ts', '.js', '.vue']
     })
   ];
 
